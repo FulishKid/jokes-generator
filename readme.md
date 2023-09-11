@@ -3,4 +3,4 @@
 Vanilla JavaScript Jokes Generator with some options where you can select specific category.
 Have fun!
 
-<img src="images/screen.png" width="400">
+<img src="images/screen.png">
