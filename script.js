@@ -44,11 +44,12 @@ function getJoke() {
       b.appendChild(document.createTextNode(`"${data.value}"`));
       divContent.style.marginBottom = '25px';
       divContent.appendChild(b);
-    }
+    } else divContent.innerHTML = 'Something went wrong(';
   };
   xhrJoke.send();
 }
 
+document.addEventListener('DOMContentLoaded', getJoke);
 createCategoryOptions();
 checkForCategory();
 btn.addEventListener('click', getJoke);
