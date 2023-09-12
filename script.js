@@ -35,16 +35,18 @@ function checkForCategory() {
 function getJoke() {
   xhrJoke.open('GET', apiURL);
   xhrJoke.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
-      divContent.innerHTML = '';
+    if (this.readyState === 4) {
+      if (this.status === 200) {
+        divContent.innerHTML = '';
 
-      const data = JSON.parse(this.responseText);
-      const b = document.createElement('b');
+        const data = JSON.parse(this.responseText);
+        const b = document.createElement('b');
 
-      b.appendChild(document.createTextNode(`"${data.value}"`));
-      divContent.style.marginBottom = '25px';
-      divContent.appendChild(b);
-    } else divContent.innerHTML = 'Something went wrong(';
+        b.appendChild(document.createTextNode(`"${data.value}"`));
+        divContent.style.marginBottom = '25px';
+        divContent.appendChild(b);
+      } else divContent.innerHTML = 'Something went wrong(';
+    }
   };
   xhrJoke.send();
 }
